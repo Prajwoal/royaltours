@@ -63,12 +63,17 @@ a {
 	position: fixed;
 	margin: 0;
 	top: 0;
+	z-index: 1;
 	box-shadow: 0px 5px 10px rgb(0, 0, 0);
+	width: 100vw;
 }
 
 input[type='text'],
 input[type='password'],
 input[type='email'],
+input[type='date'],
+input[type='number'],
+input[type='tel'],
 textarea {
 	background-color: var(--background-color);
 	border: 0;
@@ -79,6 +84,9 @@ textarea {
 input[type='text']:focus,
 input[type='password']:focus,
 input[type='email']:focus,
+input[type='date']:focus,
+input[type='number']:focus,
+input[type='tel']:focus,
 textarea:focus {
 	outline: 1px solid var(--line-color);
 }
@@ -112,7 +120,6 @@ button:hover {
 header {
 	background-color: var(--emphasis-background);
 	border-bottom: 1px solid var(--line-color);
-	width: 100vw;
 	height: var(--header-height);
 	display: flex;
 	justify-content: space-between;
@@ -345,7 +352,8 @@ footer {
 	margin-top: 1.3rem;
 }
 
-.contact-form form textarea {
+.contact-form form textarea,
+.booking form textarea {
 	resize: vertical;
 }
 
@@ -353,7 +361,8 @@ footer {
 
 /* Sign in */
 .signin-container,
-.signup-container {
+.signup-container,
+.booking-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -361,7 +370,8 @@ footer {
 }
 
 .signin-container > div,
-.signup-container > div {
+.signup-container > div,
+.booking-container .booking {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -379,7 +389,8 @@ footer {
 }
 
 .signin-container form,
-.signup-container form {
+.signup-container form,
+.booking-container form {
 	margin: 2em 0;
 	display: flex;
 	flex-direction: column;
@@ -388,17 +399,21 @@ footer {
 .signin-container form button,
 .signin-container form label,
 .signup-container form button,
-.signup-container form label {
+.signup-container form label,
+.booking-container form button,
+.booking-container form label {
 	margin-top: 1em;
 }
 
 .signin-container a,
-.signup-container a {
+.signup-container a,
+.booking-container a {
 	color: var(--text-light);
 }
 
 .signin-container a:hover,
-.signup-container a:hover {
+.signup-container a:hover,
+.booking-container a:hover {
 	text-decoration: underline;
 }
 
@@ -412,6 +427,22 @@ footer {
 .name input {
 	display: block;
 }
+
+/* booking */
+.booking-container .booking {
+	width: auto;
+	min-width: 300px;
+}
+
+.numbers {
+	display: flex;
+	margin-top: 2em;
+}
+
+.numbers .children {
+	margin-left: 1em;
+}
+
 @media (max-width: 768px) {
 	/* Header */
 	.menu-icon {
@@ -459,5 +490,20 @@ footer {
 	}
 	.lname {
 		margin-top: 1em;
+	}
+
+	/* Booking */
+	.numbers {
+		flex-direction: column;
+		margin-top: 0;
+	}
+
+	.numbers > div {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.numbers .children {
+		margin-left: 0;
 	}
 }
